@@ -1,0 +1,958 @@
+/*all*/
+* {
+  margin: 0;
+  padding: 0;
+  margin: auto;
+} /*all*/
+
+@media (max-width: 768px) {
+  /* Estilos para telas menores, como smartphones */
+  /* Você pode ajustar o estilo do menu, tamanho de fontes, margens, etc. */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  /*navbar*/
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+nav {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-family: "Poppins", sans-serif;
+  height: 13vh;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+}
+
+.nav-list li {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 31px;
+  margin-left: 31px;
+} /*navbar*/
+
+.home {
+  /*home*/
+  padding: 2rem 9%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 81vh;
+  background: url(imgs/casal-desfrutando-de-comida-no-restaurante2.png) no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.home .text {
+  text-align: center;
+  line-height: normal;
+  width: 60rem;
+}
+
+.home .text h1 {
+  color: white;
+  font-size: 96px;
+  font-family: Oleo Script Swash Caps;
+}
+
+.home .text p {
+  color: #fff;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.text .btn {
+  background: #611b00;
+  color: #ffffff;
+  padding: 14px 14px;
+  border-radius: 1000px;
+  display: inline-block;
+  margin-top: 4rem;
+  cursor: pointer;
+  background-color: #611b00;
+} /*home*/
+
+
+
+.imagemDivAbout {
+  /*about*/
+  width: 50%;
+  padding: 20px;
+}
+
+.imagemAbout {
+  max-width: 100%;
+  height: auto;
+}
+.about {
+  display: flex;
+  justify-content: space-between;
+}
+
+.imagensAbout,
+.textoAbout {
+  display: flex;
+  width: 48%;
+  padding: 20px;
+}
+
+.about .text {
+  width: 400px;
+  float: left; /* Alinha o texto à esquerda */
+  padding: 100px;
+  margin-right: 20px;
+}
+.about .text hr {
+  height: 2px;
+  width: 129px;
+  background: #d17542;
+  margin: 0;
+  border: none;
+  border-top: 1px;
+  margin-top: 41px;
+  margin-bottom: 41px;
+}
+.about .text h1 {
+  width: 168px;
+  height: 60px;
+  color: var(--dark, #1c1c1c);
+  font-family: Oleo Script Swash Caps;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.about .text p {
+  width: 482px;
+  height: 43px;
+  color: var(--texto, #7d7d7d);
+
+  /* subt 2 */
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.textoAbout .btn {
+  padding: 14px 10px;
+  margin-top: 6rem;
+  border-radius: 1000px;
+  background-color: #611b00;
+} 
+
+
+
+/*about*/
+
+ /* Estilos para a seção de menu */
+ .menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+ 
+}
+
+.menu .text h1 {
+  height: 65px;
+  color: var(--dark, #1c1c1c);
+  font-family: Oleo Script Swash Caps;
+  font-size: 64px;
+  font-weight: 400;
+}
+
+.menu .text hr {
+  height: 2px;
+  width: 129px;
+  background: #d17542;
+  margin: 0 auto; /* Centralizar horizontalmente */
+  border-top: 1px;
+  margin-top: 41px;
+  margin-bottom: 41px;
+}
+
+.menu .text p {
+  max-width: 710px; /* Use max-width para garantir que o texto não ultrapasse a largura máxima */
+  color: var(--texto, #7d7d7d);
+  font-family: Poppins;
+  font-size: 16px;
+  margin-top: 51px;
+  margin-bottom: 51px;
+}
+
+/* Estilos para o grid de imagens */
+.gridM {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr; /* Altura automática das linhas */
+  grid-gap: 30px; /* Espaçamento entre as caixas */
+}
+
+.gridM img {
+  width: 100%; /* As imagens ocupam 100% da largura da caixa */
+  height: auto; /* A altura ajusta automaticamente para manter a proporção */
+  filter: brightness(60%);
+}
+
+/* Estilos para os botões */
+.bntM {
+  border-radius: 50%;
+  width: 54px;
+  height: 61px;
+  position: relative;
+  top: -12em;
+  left: 0em;
+}
+
+/* Estilos específicos para cada botão */
+.dinner .bntM {
+  background: url(imgs/dinner_ep.png);
+  background-color: #535981;
+  border: none;
+  box-shadow: 0px -1px 14px 9px rgba(0, 0, 0);
+}
+
+
+.salad .bntM {
+  background: url(imgs/salad_ep.png);
+  background-color: #535981;
+  border: none;
+  box-shadow: 0px -1px 14px 9px rgba(0, 0, 0);
+}
+
+.lunche .bntM {
+  background: url(imgs/lunche_ep.png);
+  background-color: #535981;
+  border: none;
+  box-shadow: 0px -1px 14px 9px rgba(0, 0, 0);
+}
+
+.vegan .bntM {
+  background: url(imgs/vegan_ep.png) center no-repeat;
+  background-color: #535981;
+  border: none;
+  box-shadow: 0px -1px 14px 9px rgba(0, 0, 0);
+}
+
+.desserts .bntM {
+  background: url(imgs/desserts_ep.png);
+  background-color: #535981;
+  border: none;
+  box-shadow: 0px -1px 14px 9px rgba(0, 0, 0);
+}
+
+.drinks .bntM {
+  background: url(imgs/drink_ep.png);
+  background-color: #535981;
+  border: none;
+  box-shadow: 0px -1px 14px 9px rgba(0, 0, 0);
+}
+
+/* Estilos de hover para os botões */
+.bntM:hover {
+  background-color: #16437e; /* Cor temporária */
+}
+
+/* Estilos para o texto do menu */
+.textoM {
+  font-family: Oleo Script Swash Caps;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0em;
+  color: white;
+  position: relative;
+  top: -8em;
+  left: 0%;
+}
+
+
+
+
+.gridS {
+  /*serviços*/
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+  grid-column-gap: 100px;
+  margin-top: 90px;
+  margin-left: 253px;
+}
+.Reserve img {
+  margin-left: 78px;
+}
+.delivery img {
+  margin-left: 78px;
+}
+.take_away img {
+  margin-left: 78px;
+}
+
+.gridS h1 {
+  text-align: center;
+  font-family: Oleo Script Swash Caps;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 33px;
+  letter-spacing: 0em;
+}
+
+.textoS h1 {
+  font-family: Oleo Script Swash Caps;
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 89px;
+  letter-spacing: 0em;
+  text-align: left;
+  text-align: center;
+  margin-top: 150px;
+}
+
+.textoS hr {
+  margin-left: 615px;
+  margin-top: 35px;
+  margin-bottom: 35px;
+  width: 128px;
+  border: none;
+  border: 1px solid rgba(209, 117, 66, 1);
+}
+
+.textoS p {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-left: 253px;
+  margin-right: 253px;
+  color: #7d7d7d;
+}
+
+.gridS p {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #7d7d7d;
+} /*serviços*/
+
+
+.gridS {
+  /*serviços*/
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+  grid-column-gap: 100px;
+  margin-top: 90px;
+  margin-left: 253px;
+}
+.Reserve img {
+  margin-left: 78px;
+ ;
+}
+.delivery img {
+  margin-left: 78px;
+}
+.take_away img {
+  margin-left: 78px;
+}
+
+.gridS h1 {
+  text-align: center;
+  font-family: Oleo Script Swash Caps;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 33px;
+  letter-spacing: 0em;
+}
+
+.textoS h1 {
+  font-family: Oleo Script Swash Caps;
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 89px;
+  letter-spacing: 0em;
+  text-align: left;
+  text-align: center;
+  margin-top: 150px;
+}
+
+.textoS hr {
+  margin-left: 615px;
+  margin-top: 35px;
+  margin-bottom: 35px;
+  width: 128px;
+  border: none;
+  border: 1px solid rgba(209, 117, 66, 1);
+}
+
+.textoS p {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-left: 253px;
+  margin-right: 253px;
+  color: #7d7d7d;
+}
+
+.gridS p {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #7d7d7d;
+} /*serviços*/
+
+
+.review {
+  background: url(imgs/review_F.jpg) no-repeat;
+  background-size: cover;
+  width: 1349px;
+  height: 650px;
+}
+
+.textoR {
+  text-align: center;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.textoR h1 {
+  font-family: Oleo Script Swash Caps;
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 89px;
+  letter-spacing: 0em;
+  color: #f3f3f3;
+  text-align: center;
+}
+
+.textoR hr {
+  height: 2px;
+  width: 129px;
+  background: #8a452a;
+  margin: 0;
+  border: none;
+  margin-top: 31px;
+  margin-bottom: 31px;
+  margin-left: 600px;
+}
+.textoR p {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #f3f3f3;
+  margin-left: 300px;
+  margin-right: 300px;
+}
+
+.gridR {
+
+  display: grid;
+  grid-template-columns: repeat(3, 300px); /* Define três colunas de 100px cada */
+  gap: 150px; /* Espaçamento entre os itens */
+  justify-items: center; /* Centraliza os itens horizontalmente */
+  align-items: center; /* Centraliza os itens verticalmente */
+  height: 500px; /* Altura do container para exemplo */
+  margin-left: 80px;
+}
+
+.gridR h1 {
+  font-family: Oleo Script Swash Caps;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 33px;
+  letter-spacing: 0em;
+  text-align: left;
+  text-align: center;
+}
+.gridR img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.gridR p {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: center;
+  text-align: center;
+}
+.gridR .Isabela_S {
+  background-color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.gridR .Ling_w {
+  background-color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.gridR .Aliyah_k {
+  background-color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.rating {
+  font-size: 0; /* Remove o espaço entre as estrelas */
+}
+
+.star {
+  display: inline-block;
+  width: 20px; /* Largura da estrela */
+  height: 20px; /* Altura da estrela */
+  background-color: gold; /* Cor da estrela não preenchida */
+  clip-path: polygon(50% 0%, 61.8% 35.3%, 98.2% 35.3%, 68.2% 57.3%, 79.1% 91.7%, 50% 70.5%, 20.9% 91.7%, 31.8% 57.3%, 1.8% 35.3%, 38.2% 35.3%); /* Cria a forma de uma estrela */
+  margin-right: 5px; /* Espaçamento entre as estrelas */
+}
+
+
+
+.bntD {
+  position: relative;
+  text-align: center;
+} /*esse botão e da onde?*/
+
+.reserve {
+  height: 10vh; /* Altura da área do menu */
+  margin-top: 200px; /* Espaço superior */
+}
+.reserve h1 {
+  font-family: Oleo Script Swash Caps;
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 89px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.reserve hr {
+  height: 2px;
+  width: 129px;
+  background: #d17542;
+  margin: 620px;
+  border-top: 1px;
+  margin-top: 41px;
+  margin-bottom: 41px;
+}
+
+.reserve p {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  margin-left: 253px;
+  margin-right: 253px;
+  color: #615f5f;
+}
+
+.formulario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 180vh;
+}
+.form_box {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 700px;
+}
+
+.form_box form {
+  display: flex;
+  align-items: start;
+  flex-wrap: wrap;
+  padding: 32px;
+}
+
+.form_box input,
+.form_box textarea {
+  width: calc(50% - 8px);
+  height: 50px;
+  border: thin solid #888888;
+  margin-bottom: 28px;
+  font-size: 16px;
+  font-family: Poppins;
+}
+.form_box input[name="name"] {
+  width: 100%;
+}
+.form_box input[name="email"] {
+  width: 100%;
+}
+.form_box input[name="number"] {
+  width: 50%;
+}
+.form_box textarea {
+  width: 100%;
+  height: 290px;
+  padding: 16px;
+}
+
+.form_box button {
+  display: block;
+  border: none;
+  outline: none;
+  width: 129px;
+  height: 52px;
+  border-radius: 1000px;
+  background-color: #621b00;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 256px;
+}
+
+.form_box button:hover {
+  background-color: #883819;
+}
+
+.score{
+  background:url(imgs/Rectangle\ 19-1.png) no-repeat;
+}
+
+.gridF {
+  display: grid;
+  grid-template-columns: repeat(3, 300px); /* Define três colunas de 100px cada */
+  gap: 150px; /* Espaçamento entre os itens */
+  justify-items: center; /* Centraliza os itens horizontalmente */
+  align-items: center; /* Centraliza os itens verticalmente */
+  height: 340px; /* Altura do container para exemplo */
+  margin-left: 80px;
+  filter: none;
+}
+.gridF h1 {
+  font-family: Oleo Script Swash Caps;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 66px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #F3F3F3;
+}
+
+.gridF p {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #FFFFFF;
+}
+.gridF hr {
+  height: 2px;
+  width: 129px;
+  background: #9b2c00;
+  margin: 0;
+  border: none;
+}
+
+/* Estilos para o footer */
+footer {
+  display: flex; /* Usamos flexbox para alinhar os grids lado a lado */
+  background-color: #000000;
+  color: white;
+  padding: 10px;
+  text-align: center;
+
+}
+
+/* Estilos para os grids */
+.grid-item {
+  flex: 1; /* Cada grid ocupa a mesma largura disponível */
+  background-color: #000000;
+  color:#7D7D7D;
+  padding: 10px;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.gridImgC {
+  text-align: center;
+}
+
+/* Estilos para a seção de informações de contato */
+.contact-info {
+  background-color: #000000;
+  color: #7D7D7D;
+  padding: 10px;
+  text-align: left;
+font-family: Poppins;
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+letter-spacing: 0em;
+text-align: left;
+
+}
+.contact-info h3{
+  color: white;
+  font-family: Oleo Script Swash Caps;
+font-size: 24px;
+font-weight: 400;
+line-height: 33px;
+letter-spacing: 0em;
+text-align: left;
+margin-top: 50px;
+}
+.final{
+background-color: #313131;
+color: #FFFFFF;
+font-family: Poppins;
+}
+
+
+.direitos{
+  text-align: center;
+}
+
+/* Adicione regras de mídia para telas menores */
+@media (max-width: 768px) {
+  .textoR h1 {
+    font-size: 24px;
+    line-height: 34px;
+  }
+
+  .textoR hr {
+    width: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .textoR p {
+    font-size: 14px;
+  }
+
+  .gridR h1 {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .gridR img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .gridR p {
+    font-size: 12px;
+  }
+
+  .star {
+    width: 12px;
+    height: 12px;
+    margin-right: 2px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Exibir os elementos um abaixo do outro */
+  .gridM {
+    display: block;
+  }
+
+  /* Defina uma largura maior para os elementos (ajuste conforme necessário) */
+  .gridM .dinner,
+  .gridM .salad,
+  .gridM .lunche,
+  .gridM .vegan,
+  .gridM .desserts,
+  .gridM .drinks {
+    width: 100%; /* Ou outra largura desejada */
+  }
+
+  /* Alinhe os elementos verticalmente */
+  .gridM .dinner,
+  .gridM .salad,
+  .gridM .lunche,
+  .gridM .vegan,
+  .gridM .desserts,
+  .gridM .drinks {
+    text-align: center; /* Centralize o texto horizontalmente */
+    margin-bottom: 20px; /* Adicione margem na parte inferior para espaçamento */
+  }
+
+  /* Outros estilos específicos para telas menores */
+}
+
+
+
+@media (max-width: 768px) {
+  /* Estilos para telas maiores */
+.imagemDivAbout {
+  width: 50%;
+  padding: 20px;
+}
+
+.imagemAbout {
+  max-width: 100%;
+  height: auto;
+}
+
+.about {
+  display: flex;
+  justify-content: space-between;
+}
+
+.imagensAbout,
+.textoAbout {
+  display: flex;
+  width: 48%;
+  padding: 20px;
+}
+
+.about .text {
+  width: 400px;
+  float: left;
+  padding: 100px;
+  margin-right: 20px;
+}
+
+.about .text hr {
+  height: 2px;
+  width: 129px;
+  background: #d17542;
+  margin: 0;
+  border: none;
+  border-top: 1px;
+  margin-top: 41px;
+  margin-bottom: 41px;
+}
+
+.about .text h1 {
+  width: 168px;
+  height: 60px;
+  color: var(--dark, #1c1c1c);
+  font-family: Oleo Script Swash Caps;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.about .text p {
+  width: 482px;
+  height: 43px;
+  color: var(--texto, #7d7d7d);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.textoAbout .btn {
+  padding: 14px 10px;
+  margin-top: 6rem;
+  border-radius: 1000px;
+  background-color: #611b00;
+}
+}
+
+@media (max-width: 768px) {
+  .gridS {
+    display: block; /* Exibir os elementos um abaixo do outro em telas menores */
+    margin-left: auto; /* Remova a margem esquerda */
+    margin-right: auto; /* Remova a margem direita */
+  }
+
+  .Reserve img,
+  .delivery img,
+  .take_away img {
+    display: block;
+    margin: 0 auto; /* Centralize as imagens horizontalmente */
+  }
+
+  .gridS h1 {
+    font-size: 20px; /* Reduza o tamanho da fonte para telas menores */
+  }
+
+  .textoS h1 {
+    font-size: 48px; /* Reduza o tamanho da fonte para telas menores */
+    margin-top: 50px; /* Ajuste a margem superior */
+  }
+
+  .textoS hr {
+    margin-left: auto; /* Remova a margem esquerda para o hr */
+    margin-right: auto; /* Remova a margem direita para o hr */
+  }
+
+  .textoS p,
+  .gridS p {
+    font-size: 14px; /* Reduza o tamanho da fonte para telas menores */
+    margin-left: 0; /* Redefina a margem esquerda */
+    margin-right: 0; /* Redefina a margem direita */
+  }
+}
+@media screen and (max-width: 768px) {
+  .gridF {
+    grid-template-columns: 100%; /* Uma coluna em telas menores */
+    gap: 20px; /* Reduza o espaçamento entre os itens */
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  /* Esconda os elementos adicionais em telas menores */
+  .gridF > *:nth-child(n+4) {
+    display: none;
+  }
+}

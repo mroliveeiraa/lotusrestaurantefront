@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta e Edição de Reserva</title>
+    <style>
+        /* Adicione estilos CSS conforme necessário */
+        #mensagemConsulta {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        #formEdicao {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Consulta e Edição de Reserva</h1>
+
+    <form id="formConsulta">
+        <label for="idReserva">ID da Reserva:</label>
+        <input type="number" id="idReserva" name="idReserva" required><br>
+
+        <button type="button" onclick="consultarReserva()">Consultar Reserva</button>
+    </form>
+
+    <form id="formEdicao">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="telefonePrincipal">Telefone Principal:</label>
+        <input type="text" id="telefonePrincipal" name="telefonePrincipal" required><br>
+
+        <label for="telefoneReserva">Telefone para Reserva:</label>
+        <input type="text" id="telefoneReserva" name="telefoneReserva"><br>
+
+        <label for="dataHoraReserva">Data e Hora da Reserva:</label>
+        <input type="datetime-local" id="dataHoraReserva" name="dataHoraReserva" required><br>
+
+        <label for="numeroPessoas">Número de Pessoas:</label>
+        <input type="number" id="numeroPessoas" name="numeroPessoas" required><br>
+
+        <label for="observacao">Observação:</label>
+        <textarea id="observacao" name="observacao"></textarea><br>
+
+        <button type="button" onclick="atualizarReserva()">Atualizar Reserva</button>
+        <button type="button" onclick="excluirReserva()">Excluir Reserva</button>
+        <button type="button" onclick="voltarParaConsulta()">Consultar Reserva</button>
+    </form>
+
+    <div id="mensagemConsulta"></div>
+
+    <script>
+        function consultarReserva() {
+            var idReserva = document.getElementById('idReserva').value;
+
+            fetch('http://localhost:8080/reservamesa/' + idReserva)
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Reserva não encontrada com o ID: ' + idReserva);
+                    }
+                })
+                .then(data => {
+                    exibirFormularioEdicao(data);
+                })
+                .catch(error => {
+                    console.error('Erro ao consultar reserva:', error);
+                    exibirMensagemConsulta('Erro ao consultar reserva: ' + error.message);
+                });
+        }
+
+        function exibirFormularioEdicao(reserva) {
+            var formEdicao = document.getElementById('formEdicao');
+
+            // Preencher os campos do formulário de edição com os dados da reserva
+            formEdicao.querySelector('#nome').value = reserva.nome;
+            formEdicao.querySelector('#email').value = reserva.email;
+            formEdicao.querySelector('#telefonePrincipal').value = reserva.telefonePrincipal;
+            formEdicao.querySelector('#telefoneReserva').value = reserva.telefoneReserva || '';
+            formEdicao.querySelector('#dataHoraReserva').value = reserva.dataHoraReserva;
+            formEdicao.querySelector('#numeroPessoas').value = reserva.numeroPessoas;
+            formEdicao.querySelector('#observacao').value = reserva.observacao || '';
+
+            // Exibir o formulário de edição e ocultar o formulário de consulta
+            formEdicao.style.display = 'block';
+            document.getElementById('formConsulta').style.display = 'none';
+
+            // Exibir mensagem de sucesso da consulta
+            exibirMensagemConsulta('Reserva encontrada. Você pode editar os campos acima.');
+        }
+
+        function atualizarReserva() {
+            var idReserva = document.getElementById('idReserva').value;
+            var formEdicao = document.getElementById('formEdicao');
+            var formData = new FormData(formEdicao);
+
+            fetch('http://localhost:8080/reservamesa/' + idReserva, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    nome: formData.get('nome'),
+                    email: formData.get('email'),
+                    telefonePrincipal: formData.get('telefonePrincipal'),
+                    telefoneReserva: formData.get('telefoneReserva'),
+                    dataHoraReserva: formData.get('dataHoraReserva'),
+                    numeroPessoas: parseInt(formData.get('numeroPessoas')),
+                    observacao: formData.get('observacao')
+                }),
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Erro ao atualizar reserva');
+                    }
+                })
+                .then(data => {
+                    console.log('Reserva atualizada com sucesso:', data);
+                    exibirMensagemConsulta('Reserva atualizada com sucesso.');
+                    voltarParaConsulta();
+                })
+                .catch(error => {
+                    console.error('Erro ao atualizar reserva:', error);
+                    exibirMensagemConsulta('Erro ao atualizar reserva: ' + error.message);
+                });
+        }
+
+
+        function excluirReserva() {
+            var idReserva = document.getElementById('idReserva').value;
+
+            if (confirm('Tem certeza que deseja excluir esta reserva?')) {
+                fetch('http://localhost:8080/reservamesa/' + idReserva, {
+                    method: 'DELETE',
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            console.log('Reserva excluída com sucesso');
+                            exibirMensagemConsulta('Reserva excluída com sucesso.');
+                            limparCamposEdicao();
+                        } else {
+                            throw new Error('Erro ao excluir reserva');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Erro ao excluir reserva:', error);
+                        exibirMensagemConsulta('Erro ao excluir reserva: ' + error.message);
+                    });
+            }
+        }
+
+        function voltarParaConsulta() {
+            // Ocultar o formulário de edição e exibir o formulário de consulta
+            document.getElementById('formEdicao').style.display = 'none';
+            document.getElementById('formConsulta').style.display = 'block';
+
+            // Limpar a mensagem de consulta
+            document.getElementById('mensagemConsulta').innerHTML = '';
+        }
+
+        function exibirMensagemConsulta(mensagem) {
+            var mensagemDiv = document.getElementById('mensagemConsulta');
+            mensagemDiv.innerHTML = mensagem;
+        }
+
+        function limparCamposEdicao() {
+            var formEdicao = document.getElementById('formEdicao');
+
+            // Limpar os campos do formulário de edição
+            formEdicao.querySelector('#nome').value = '';
+            formEdicao.querySelector('#email').value = '';
+            formEdicao.querySelector('#telefonePrincipal').value = '';
+            formEdicao.querySelector('#telefoneReserva').value = '';
+            formEdicao.querySelector('#dataHoraReserva').value = '';
+            formEdicao.querySelector('#numeroPessoas').value = '';
+            formEdicao.querySelector('#observacao').value = '';
+
+            // Ocultar o formulário de edição e exibir o formulário de consulta
+            formEdicao.style.display = 'none';
+            document.getElementById('formConsulta').style.display = 'block';
+        }
+    </script>
+
+</body>
+
+</html>

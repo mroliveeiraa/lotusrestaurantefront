@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Reservas</title>
+    <style>
+        /* Adicione estilos CSS conforme necessário */
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        #mensagemReserva {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Gerenciamento de Reservas</h1>
+
+    <h2>Criar Reserva</h2>
+    <form id="formCriar">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="telefonePrincipal">Telefone Principal:</label>
+        <input type="text" id="telefonePrincipal" name="telefonePrincipal" required><br>
+
+        <label for="telefoneReserva">Telefone para Reserva:</label>
+        <input type="text" id="telefoneReserva" name="telefoneReserva"><br>
+
+        <label for="dataHoraReserva">Data e Hora da Reserva:</label>
+        <input type="datetime-local" id="dataHoraReserva" name="dataHoraReserva" required><br>
+
+        <label for="numeroPessoas">Número de Pessoas:</label>
+        <input type="number" id="numeroPessoas" name="numeroPessoas" required><br>
+
+        <label for="observacao">Observação:</label>
+        <textarea id="observacao" name="observacao"></textarea><br>
+
+        <button type="button" onclick="criarReserva()">Criar Reserva</button>
+    </form>
+
+    <div id="mensagemReserva"></div>
+
+    <script>
+        function criarReserva() {
+            var formElement = document.getElementById('formCriar');
+            var formData = new FormData(formElement);
+
+            var reservaData = {
+                nome: formData.get('nome'),
+                email: formData.get('email'),
+                telefonePrincipal: formData.get('telefonePrincipal'),
+                telefoneReserva: formData.get('telefoneReserva'),
+                dataHoraReserva: formData.get('dataHoraReserva'),
+                numeroPessoas: parseInt(formData.get('numeroPessoas')),
+                observacao: formData.get('observacao')
+            };
+
+            fetch('http://localhost:8080/reservamesa', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(reservaData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Verifique se a reserva foi bem-sucedida
+                if (data.id) {
+                    exibirMensagem('Reserva realizada com sucesso! Anote o código da reserva: ' + data.id);
+                } else {
+                    exibirMensagem('Falha ao realizar a reserva. Verifique os dados e tente novamente.');
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao criar reserva:', error);
+                exibirMensagem('Erro ao criar reserva. Tente novamente mais tarde.');
+            });
+        }
+
+        function exibirMensagem(mensagem) {
+            var mensagemDiv = document.getElementById('mensagemReserva');
+            mensagemDiv.innerHTML = mensagem;
+        }
+    </script>
+
+</body>
+</html>
